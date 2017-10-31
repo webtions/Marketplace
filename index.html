@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<div class="gh-themes-feed">
+    {% for post in site.posts | where:"category", "(sites.selected_category)" and where:"tag", "Photo" %}
+      <div class="gh-theme-card">
+        <a href="{{ post.download }}">{{ post.title }}</a>
+        {{ post.title }} - {{ post.category}}
+        {{ post.tag}}
+    </div>
+    {% endfor %}
+</div>

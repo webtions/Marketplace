@@ -1,0 +1,64 @@
+<header class="gh-head">
+    <nav class="gh-navbar inner">
+        <div class="gh-navbar-left">
+            <a class="gh-nav-logo gh-navbar-item" href="https://marketplace.ghost.org">
+                {% include /icons/ghost-logo.svg %}
+                <div class="gh-nav-logo-suffix">Marketplace</div></a>
+
+            </div>
+            <div class="gh-navbar-right">
+                <div class="gh-drop gh-more-drop">
+                    <a class="gh-navbar-btn gh-drop-trigger" href="#">
+                        <span>
+                            Collection
+                            {% include /icons/arrow_down.svg %}
+                        </span>
+                    </a>
+                    <div class="gh-dropdown">
+                        <li><a href="#" class="selected-tag">All</a></li>
+                        {% for tag in site.tags %}
+                        <li><a href="#" class="selected-tag">{{tag[0]}}</a></li>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="gh-drop gh-more-drop">
+                    <a class="gh-navbar-btn gh-drop-trigger" href="#">
+                        <span>
+                            Price
+                            {% include /icons/arrow_down.svg %}
+                        </span>
+                    </a>
+                    <div class="gh-dropdown">
+                        <li><a href="#" class="selected-category">All</a></li>
+                        <li><a href="#" class="selected-category">Free</a></li>
+                        <li><a href="#" class="selected-category">Paid</a></li>
+                    </div>
+                </div>
+
+                <a class="gh-navbar-item" href="https://themes.ghost.org">Docs</a>
+                <a class="gh-navbar-item" href="https://github.com/tryghost/marketplace">Submit</a>
+                <a class="gh-navbar-btn gh-btn" href="https://ghost.org" id="signin-button"><span>Back to Ghost</span></a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<header class="gh-mobilehead">
+    <nav class="gh-mobilenavbar">
+        <a class="gh-nav-burger" href="#">
+            <div class="hamburger hamburger--collapse"
+            aria-label="Menu" role="button" aria-controls="navigation">
+            <div class="hamburger-box"><div class="hamburger-inner"></div></div>
+        </div>
+    </a>
+    <a class="gh-nav-logo" href="/">
+        {% include /icons/ghost-logo.svg %}
+    </a>
+    <a class="gh-login-link" id="signin-button-mobile" href="https://ghost.org">Back to Ghost</a>
+</nav>
+<div class="gh-mobilemenu">
+    <a href="https://themes.ghost.org">Docs</a>
+    <a href="https://github.com/tryghost/marketplace">Submit</a>
+    <a href="https://ghost.org">Back to Ghost</a>
+</div>
+</header>

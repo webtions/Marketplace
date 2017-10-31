@@ -1,0 +1,32 @@
+{
+  "name": "marketplace",
+  "version": "0.0.1",
+  "description": "Professional Themes for your Ghost Blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TryGhost/Marketplace.git"
+  },
+  "author": "Ghost Foundation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TryGhost/Marketplace/issues"
+  },
+  "homepage": "https://github.com/TryGhost/Marketplace#readme",
+  "devDependencies": {
+    "autoprefixer": "7.1.6",
+    "cssnano": "3.10.0",
+    "gulp-livereload": "3.8.1",
+    "gulp-nodemon": "2.2.1",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sourcemaps": "2.6.1",
+    "gulp-util": "3.0.8",
+    "gulp-watch": "4.3.8",
+    "postcss-color-function": "2.0.1",
+    "postcss-custom-properties": "5.0.1",
+    "postcss-easy-import": "1.0.1"
+  }
+}

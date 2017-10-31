@@ -1,0 +1,160 @@
+/* Basic Page Layout
+/* ---------------------------------------------------------- */
+
+.gh-page {
+    display: flex;
+    margin: 0 auto;
+    padding: 2vw 0;
+}
+
+/* Sidebar
+/* ---------------------------------------------------------- */
+
+.gh-page-sidebar {
+    flex: 1 0 240px;
+    padding-right: 40px;
+    font-size: 1.3rem;
+    user-select: none;
+}
+
+.gh-page-sidebar h3 {
+    display: block;
+    margin: 0;
+    padding: 7px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.gh-page-nav-list {
+    margin: 0 0 15px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gh-page-nav-list li {
+    margin: 0;
+}
+
+.gh-page-nav-list-sub {
+    margin: 0;
+    padding: 0 0 0 25px;
+    list-style: none;
+}
+
+.gh-page-nav-list a {
+    display: block;
+    padding: 4px 0;
+    font-weight: 400;
+}
+
+.gh-page-nav-list .active a {
+    position: relative;
+    color: var(--darkgrey);
+    text-decoration: none;
+}
+
+/* Content
+/* ---------------------------------------------------------- */
+
+.gh-page-content {
+    position: relative;
+    min-width: 0;
+    padding-bottom: 2vw;
+    /* Because fuck everything: https://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow */
+}
+
+.gh-page-content h2 {
+    margin-top: 3.5em;
+}
+
+.gh-page-content > p {
+    margin-right: 30px;
+}
+
+.gh-page-content img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+}
+
+.gh-page-content aside {
+    float: right;
+    width: 250px;
+    margin: 0 0 40px 40px;
+    padding: 0 30px 5px;
+    border: var(--whitegrey) 1px solid;
+    font-size: 0.9em;
+    line-height: 1.6em;
+    border-radius: 4px;
+}
+
+/* Mobile Nav
+/* ---------------------------------------------------------- */
+
+.gh-mobilepagenav-toggle {
+    display: none;
+}
+
+.gh-mobilepagenav-toggle svg {
+    width: 13px;
+    height: auto;
+}
+
+/* Media Queries
+/* ---------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+    .gh-page-sidebar {
+        flex: 1 0 200px;
+    }
+    .gh-page-content > p {
+        margin-right: 0;
+    }
+}
+@media (max-width: 860px) {
+    .gh-page-title:hover {
+        display: inline-block;
+        cursor: pointer;
+    }
+    .gh-mobilepagenav-toggle {
+        display: inline-block;
+    }
+    .gh-page-sidebar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -300px;
+        z-index: 100;
+        width: auto;
+        padding-top: 80px;
+        padding-left: 35px;
+        border-right: var(--whitegrey) 1px solid;
+        font-size: 1.5rem;
+        background: #fff;
+        transition: left 0.4s ease-out;
+    }
+    .gh-page-sidebar-open {
+        left: 0;
+    }
+    .gh-page-sidebar h3 {
+        font-size: 1.5rem;
+    }
+    .gh-page-nav-list a {
+        padding: 6px 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .gh-page-content aside {
+        float: none;
+        width: auto;
+        margin: 0 0 1.5em 0;
+        padding: 0 1.5em 5px;
+    }
+}
+
+@media (max-width: 500px) {
+    .gh-page {
+        padding: 0;
+    }
+}

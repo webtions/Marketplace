@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+{% include head.html %}
+
+<body>
+
+    {% include header.html %}
+
+    <main class="gh-main" role="main">
+        <header class="gh-hero">
+            <div class="inner">
+                <div class="gh-header">
+                    <h1>Professional Ghost Themes</h1>
+                    <p class="gh-subhead">Discover a beautiful custom design for your publication</p>
+                </div>
+            </div>
+        </header>
+        <section class="gh-section">
+            <div class="inner">
+                <!-- TODO: this doesn't work unfortunately... -->
+            {% assign selected_tag = (window.selectedTag) %}
+                <p>selected Tag: {{ selected_tag }}</p>
+                {{ content }}
+            </div>
+        </section>
+    </main>
+
+    {% include footer.html %}
+
+    <script>
+    var selectedTag;
+
+        $(document).ready(function () {
+            $('.selected-tag').click(function (e) {
+                var text = $(e.target).text();
+                e.preventDefault();
+                selectedTag = text;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

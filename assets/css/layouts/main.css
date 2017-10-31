@@ -1,0 +1,867 @@
+/* Main Layout
+/* ---------------------------------------------------------- */
+
+.gh-viewport {
+    position: relative;
+}
+
+.inner {
+    width: 100%;
+    max-width: 1030px;
+    margin: 0 auto;
+}
+
+/* Header
+/* ---------------------------------------------------------- */
+
+.gh-head {
+    position: relative;
+    z-index: 900;
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0 4vw;
+    border-bottom: var(--whitegrey) 1px solid;
+    background: rgba(255,255,255,0.97);
+}
+@media (max-width: 600px) {
+    .gh-head {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+.gh-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    font-size: 13px;
+}
+
+.gh-navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.gh-navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.gh-navbar-item {
+    flex-shrink: 0;
+    display: block;
+    padding: 10px 12px;
+    color: var(--midgrey);
+    font-weight: 500;
+    text-decoration: none;
+    user-select: none;
+}
+
+.gh-navbar-item:hover,
+.gh-navbar-item-active,
+.gh-drop.active .gh-drop-trigger {
+    color: var(--darkgrey);
+    text-decoration: none;
+}
+
+.gh-navbar-item:hover .gh-nav-logo-suffix {
+    color: inherit;
+}
+
+.gh-nav-logo {
+    flex-shrink: 0;
+    display: flex !important;
+    align-items: center;
+    margin-left: -12px;
+    color: var(--blue);
+}
+
+.gh-nav-logo:hover {
+    color: color(var(--blue) l(-5%));
+}
+
+.gh-nav-logo .ghost-svg {
+    width: auto;
+    height: 25px;
+}
+
+.gh-nav-logo-suffix {
+    position: relative;
+    margin: 0 0 0 12px;
+    padding: 0 0 0 11px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-shadow: none;
+    transition: none;
+}
+
+.gh-nav-logo-suffix:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 23px;
+    background: color(var(--whitegrey) l(-5%));
+    transform: rotate(25deg);
+}
+
+.gh-more-drop svg {
+    width: 7px;
+    height: auto;
+    margin-left: 3px;
+}
+
+.gh-more-drop .gh-dropdown {
+    right: -73px;
+    width: 146px;
+    font-size: 1.2rem;
+    text-shadow: none;
+}
+
+.gh-more-drop .gh-dropdown:after {
+    right: 66px;
+}
+
+.gh-more-drop .gh-dropdown:before {
+    right: 64px;
+}
+
+.gh-more-drop .gh-badge {
+    font-size: 1rem;
+}
+
+.gh-navbar-btn {
+    margin-left: 10px;
+    color: var(--midgrey);
+    transition: all 0.5s ease;
+}
+
+.gh-navbar-btn span {
+    height: auto;
+    min-width: 66px;
+    padding: 8px 10px;
+    line-height: 1;
+    text-align: center;
+}
+
+.gh-navbar-btn:hover {
+    border-color: var(--blue);
+    color: color(var(--blue) blackness(+10%));
+    transition: all 0.2s ease;
+}
+
+.gh-signin-drop svg {
+    width: 7px;
+    height: auto;
+    margin-left: 5px;
+}
+
+/* Transparent Header
+/* ---------------------------------------------------------- */
+
+.gh-head-transparent .gh-head {
+    border: none;
+    text-shadow: rgba(0,0,0,0.1) 0 1px 1px;
+    background: transparent;
+}
+
+.gh-head-transparent .gh-head .ghost-svg g,
+.gh-head-transparent .gh-head .ghost-svg path {
+    fill: #fff;
+}
+
+.gh-head-transparent .gh-head .gh-navbar-item {
+    color: rgba(255,255,255,0.85);
+}
+
+.gh-head-transparent .gh-head .gh-navbar-item:hover,
+.gh-head-transparent .gh-head .gh-drop.active .gh-drop-trigger {
+    color: rgba(255,255,255,1);
+}
+
+.gh-head-transparent .gh-head .gh-more-drop .gh-dropdown {
+    top: 110%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15), 0 0 2px rgba(0,0,0,0.2);
+}
+
+.gh-head-transparent .gh-head .gh-navbar-btn {
+    border-color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.8);
+}
+
+.gh-head-transparent .gh-head .gh-navbar-btn:hover {
+    border-color: rgba(255,255,255,1);
+    color: rgba(255,255,255,1);
+}
+
+.gh-head-transparent .gh-hero {
+    margin-top: calc(-6vw - 55px);
+}
+
+@media (max-width: 660px) {
+    .gh-head-transparent .gh-hero {
+        margin-top: -20px;
+    }
+}
+
+.gh-head-transparent .gh-hero .gh-btn-outline {
+    border-color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.8);
+    transition: all 0.5s ease;
+}
+
+.gh-head-transparent .gh-hero .gh-btn-outline:hover {
+    border-color: #fff;
+    color: #fff;
+    transition: all 0.15s ease;
+}
+
+
+/* Mobile Header
+/* ---------------------------------------------------------- */
+
+.gh-mobilehead {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    display: none;
+    width: 100%;
+    height: 48px;
+    overflow: hidden;
+    border-bottom: rgba(0,0,0,0.05) 1px solid;
+    background: rgba(255,255,255,0.97);
+    box-shadow: #fff 0 -1px 0 0 inset, rgba(0,0,0,0.02) 0 1px 5px;
+    transition: all 0.5s ease-out, background 1s ease-out;
+    transition-delay: 0.2s;
+
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.gh-mobilenavbar {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+    font-size: 13px;
+}
+
+.gh-nav-burger {
+    display: block;
+    padding: 15px;
+    color: var(--midgrey);
+    font-size: 25px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.gh-nav-burger:hover {
+    text-decoration: none;
+}
+
+.gh-mobilenavbar .gh-nav-logo {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    display: block;
+    margin-right: -33px;
+    padding: 13px 0;
+}
+
+.gh-mobilenavbar .ghost-svg {
+    width: auto;
+    height: 23px;
+}
+
+.gh-mobilenavbar .gh-login-link {
+    display: block;
+    padding: 14px 15px;
+    font-size: 1.5rem;
+}
+
+.gh-mobilenavbar .gh-login-link:hover {
+    text-decoration: none;
+}
+
+.gh-mobilemenu {
+    padding: 2.7vw 14vw;
+}
+
+.gh-mobilemenu a {
+    display: block;
+    border-bottom: var(--whitegrey) 1px solid;
+    color: var(--midgrey);
+    font-size: 1.8rem;
+    line-height: 4.8rem;
+    font-weight: 200;
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99),
+    opacity 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition-delay: 0.4s;
+    transform: scale(1.1) translateY(-25px);
+}
+
+.gh-mobilemenu a:nth-child(1) {
+    transition-delay: 0.56s;
+}
+.gh-mobilemenu a:nth-child(2) {
+    transition-delay: 0.49s;
+}
+.gh-mobilemenu a:nth-child(3) {
+    transition-delay: 0.42s;
+}
+.gh-mobilemenu a:nth-child(4) {
+    transition-delay: 0.35s;
+}
+.gh-mobilemenu a:nth-child(5) {
+    transition-delay: 0.28s;
+}
+.gh-mobilemenu a:nth-child(6) {
+    transition-delay: 0.21s;
+}
+.gh-mobilemenu a:nth-child(7) {
+    transition-delay: 0.14s;
+}
+.gh-mobilemenu a:nth-child(8) {
+    transition-delay: 0.07s;
+}
+
+.gh-mobilemenu a:hover {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.gh-mobilemenu a.active {
+    color: var(--darkgrey);
+    font-weight: 400;
+}
+
+.gh-mobilehead-open {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    transition: all 0.3s ease-in, background 0.5s ease-in;
+    transition-delay: 0.3s;
+}
+
+.gh-mobilehead-open .gh-mobilemenu a {
+    opacity: 1;
+    transition: transform 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99),
+    opacity 0.9s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transform: scale(1) translateY(0px);
+}
+
+.gh-mobilehead-open .gh-mobilemenu a:nth-child(8) {
+    transition-delay: 0.56s;
+}
+.gh-mobilehead-open .gh-mobilemenu a:nth-child(7) {
+    transition-delay: 0.49s;
+}
+.gh-mobilehead-open .gh-mobilemenu a:nth-child(6) {
+    transition-delay: 0.42s;
+}
+.gh-mobilehead-open .gh-mobilemenu a:nth-child(5) {
+    transition-delay: 0.35s;
+}
+.gh-mobilehead-open .gh-mobilemenu a:nth-child(4) {
+    transition-delay: 0.28s;
+}
+.gh-mobilehead-open .gh-mobilemenu a:nth-child(3) {
+    transition-delay: 0.21s;
+}
+.gh-mobilehead-open .gh-mobilemenu a:nth-child(2) {
+    transition-delay: 0.14s;
+}
+.gh-mobilehead-open .gh-mobilemenu a:nth-child(1) {
+    transition-delay: 0.07s;
+}
+
+@media (max-width: 660px) {
+    .gh-viewport {
+        padding-top: 68px;
+    }
+    .gh-head {
+        display: none;
+    }
+    .gh-mobilehead {
+        display: block;
+    }
+}
+
+
+/* Main
+/* ---------------------------------------------------------- */
+
+.gh-main {
+    padding: 0 4vw;
+}
+
+.gh-section {
+    margin: 0 -4vw;
+    padding: 60px 4vw;
+}
+@media (max-width: 600px) {
+    .gh-section {
+        padding: 10vw 4vw;
+    }
+}
+
+.gh-section-dark {
+    color: #fff;
+    text-shadow: rgba(0,0,0,0.1) 0 1px 2px;
+}
+
+.gh-section-dark h2 {
+    color: #fff;
+}
+
+.gh-section-dark h3 {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.gh-section-dark p {
+    opacity: 0.8;
+}
+
+.gh-section-dark a {
+    color: color(var(--blue) l(+7%));
+}
+.gh-section-dark a.gh-anchor {
+    color: #fff;
+}
+
+.gh-section h3 .gh-badge {
+    margin-left: 4px;
+    padding: 2px;
+    padding-bottom: 2px;
+    vertical-align: top;
+    font-size: 0.7em;
+}
+
+.gh-section-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.gh-section-head h2 {
+    margin: 1em 0 0.3em 0;
+    font-size: 2.6rem;
+    font-weight: 400;
+}
+@media (max-width: 660px) {
+    .gh-section-head h2 {
+        font-size: 4.8vw;
+    }
+}
+
+.gh-section-head p {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.4em;
+    font-weight: 300;
+    opacity: 0.8;
+}
+@media (max-width: 660px) {
+    .gh-section-head p {
+        font-size: 1.6rem;
+    }
+}
+
+.gh-1col {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    line-height: 1.65em;
+}
+@media (max-width: 660px) {
+    .gh-1col {
+        font-size: 1.6rem;
+    }
+}
+
+
+/* Grids
+/* ---------------------------------------------------------- */
+
+.gh-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 -40px -10px;
+    padding: 0 20px;
+}
+
+.gh-grid-item {
+    flex: 1 0 300px;
+    padding: 20px;
+}
+@media (max-width: 934px) {
+    .gh-grid-item {
+        padding: 5px 20px;
+    }
+}
+@media (max-width: 620px) {
+    .gh-grid {
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+    }
+    .gh-grid-item {
+        position: relative;
+        flex: 1 0 auto;
+        padding: 0 20px 0 65px;
+    }
+    .gh-grid-item svg {
+        position: absolute;
+        top: 9px;
+        left: 23px;
+        width: 24px;
+        height: auto;
+    }
+}
+
+.gh-grid-item svg {
+    height: 30px;
+    fill: var(--purple);
+}
+.gh-grid-blue .gh-grid-item svg {
+    fill: var(--blue);
+}
+.gh-grid-green .gh-grid-item svg {
+    fill: var(--green);
+}
+
+.gh-grid-backups svg {
+    height: 33px;
+    margin-bottom: -3px;
+}
+
+.gh-grid-seo svg {
+    height: 26px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.gh-grid-item h3 {
+    margin: 1em 0 0.3em;
+    font-size: 1.6rem;
+}
+
+
+.gh-biggrid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 4vw auto 0;
+    padding: 0 20px;
+}
+
+.gh-biggrid-item {
+    position: relative;
+    flex: 1 0 300px;
+    margin: 15px 30px;
+    padding: 0 0 0 70px;
+    font-size: 1.6rem;
+}
+
+.gh-biggrid-item h3 {
+    margin: 0 0 5px 0;
+    color: var(--yellow);
+}
+
+.gh-biggrid-item svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: auto;
+    fill: #fff;
+}
+
+.gh-biggrid-item a {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+
+/* Footer
+/* ---------------------------------------------------------- */
+
+.gh-foot {
+    padding: 3vw 4vw 5vw;
+    font-size: 1.3rem;
+    user-select: none;
+    background: #fff;
+}
+
+.gh-foot a {
+    color: var(--midgrey);
+    text-decoration: none;
+}
+
+.gh-foot a:hover {
+    color: var(--darkgrey);
+    text-decoration: none;
+}
+
+.gh-foot-content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: var(--whitegrey) 1px solid;
+}
+
+.gh-foot-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 60px;
+}
+
+.gh-foot-col {
+    padding: 0 10px;
+}
+
+.gh-foot-col h4 {
+    margin: 5px 0 10px 0;
+    font-size: 1.4rem;
+}
+
+.gh-foot-col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gh-foot-col ul a {
+    display: block;
+    min-width: 90px;
+    padding: 3px 0;
+}
+
+.gh-foot-col li {
+    margin: 0;
+}
+
+.gh-foot-col .gh-badge {
+    position: relative;
+    top: -1px;
+}
+
+.gh-foot-mast {
+    position: relative;
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.gh-foot-mast svg {
+    display: inline-block;
+    width: auto;
+    height: 25px;
+}
+
+.gh-foot-mast-text {
+    margin: 10px 0;
+    color: var(--midgrey);
+    line-height: 1.5em;
+}
+
+.gh-langswitch .gh-drop-trigger {
+    display: inline-block;
+    padding: 4px 8px 4px 0;
+    color: color(var(--blue) l(-5%));
+}
+
+.gh-langswitch .gh-drop-trigger span {
+    display: flex;
+    align-items: center;
+}
+
+.gh-langswitch svg {
+    width: 7px;
+    height: auto;
+    margin-left: 4px;
+}
+
+.gh-langswitch .gh-dropdown {
+    right: -65px;
+    width: 130px;
+}
+
+.gh-langswitch .gh-dropdown .gh-badge-outline {
+    transition: all 0.4s ease;
+}
+
+.gh-langswitch a:hover .gh-badge-outline {
+    border-color: color(var(--darkgrey) l(+15%));
+    color: color(var(--darkgrey) l(+15%));
+}
+
+.gh-langswitch .active a {
+    color: var(--blue);
+}
+
+.gh-langswitch .active .gh-badge-outline,
+.gh-langswitch .active a:hover .gh-badge-outline {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.gh-foot-social {
+    display: flex;
+    align-items: center;
+}
+
+.gh-foot-social a {
+    display: block;
+    padding: 7px;
+}
+
+.gh-foot-social a:first-of-type {
+    padding-left: 0;
+}
+
+.gh-foot-social svg {
+    width: auto;
+    height: 14px;
+    fill: color(var(--midgrey) l(+10%));
+    transition: all 0.3s ease;
+}
+
+.gh-foot-social a:hover svg {
+    fill: var(--darkgrey);
+}
+
+.gh-foot-copyright {
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    margin-top: 5px;
+    color: var(--midgrey);
+    font-size: 1.1rem;
+}
+
+@media (max-width: 965px) {
+    .gh-foot-col:last-of-type {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .gh-foot {
+        text-align: center;
+    }
+    .gh-foot-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gh-foot-nav {
+        order: 1;
+        max-width: none;
+        padding: 0;
+    }
+    .gh-foot-col {
+        padding: 0 10px;
+    }
+    .gh-foot-col:last-of-type {
+        display: block;
+    }
+    .gh-foot-mast {
+        order: 2;
+        align-items: center;
+        width: auto;
+        max-width: 450px;
+        margin: 20px 0;
+        padding: 20px;
+        border-top: var(--whitegrey) 1px solid;
+        text-align: center;
+    }
+    .gh-foot-copyright {
+        position: static;
+    }
+}
+@media (max-width: 550px) {
+    .gh-foot-content {
+        padding: 0;
+        border: none;
+    }
+    .gh-foot-mast {
+        flex: 0 0 auto;
+        margin-top: 0;
+        padding: 20px 20px 0;
+    }
+    .gh-foot-nav {
+        display: none;
+    }
+}
+
+/*Special floating footer with no padding or border, activated by bodyclass*/
+.gh-foot-floating .gh-foot {
+    padding-top: 2vw;
+}
+
+.gh-foot-floating .gh-foot-content,
+.gh-foot-floating .gh-foot-mast {
+    border-top: none;
+}
+
+/*Special mini footer used on public properties like zendesk and statuspage*/
+.gh-foot-min {
+    padding: 0 4vw 4vw;
+    border-top: var(--whitegrey) 1px solid;
+    background: linear-gradient(
+    color(var(--whitegrey) l(+5%)),
+    color(var(--whitegrey) l(+4%))
+    );
+}
+.gh-foot-min .gh-foot-content {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-top: none;
+}
+
+.gh-foot-min-logo svg {
+    width: auto;
+    height: 22px;
+}
+
+.gh-foot-min-nav {
+    display: flex;
+    align-items: center;
+    margin-left: -15px;
+}
+
+.gh-foot-min-back {
+    margin-right: -15px;
+}
+
+.gh-foot-min-item {
+    padding: 0 15px;
+}
+
+@media (max-width: 660px) {
+    .gh-foot-min .gh-foot-content {
+        flex-direction: row;
+    }
+    .gh-foot-min-item:nth-child(1n+2) {
+        display: none;
+    }
+}

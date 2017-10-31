@@ -1,1 +1,12 @@
-theme: jekyll-theme-minimal
+exclude:
+  - .git/
+  - .github/
+  - gulpfile.js
+  - node_modules/
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+
+# Custom variables
+selected_tag: "all"
+selected_category: "all"
