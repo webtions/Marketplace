@@ -25,11 +25,8 @@ function initDropdowns(allDropdowns) {
 
 // DO THE THINGS
 $(document).ready(function () {
-    var selectedTag;
-    var selectedCategory;
     var $themeHoverDiv = null;
-    var hiddenTags = "";
-    var hiddenCategories = "";
+
     // Dropdown Menu Triggers
     initDropdowns($('.gh-more-drop'));
 
@@ -53,7 +50,7 @@ $(document).ready(function () {
         $('.gh-mobilehead').toggleClass('gh-mobilehead-open');
     });
 
-    // Hover state on theme Card
+    // Hover state on Theme Card
     $('.gh-theme-card-image-wraper').mouseenter(function (e) {
         $themeHoverDiv = $(e.target.nextElementSibling).addClass('active');
     });
@@ -63,18 +60,53 @@ $(document).ready(function () {
         $themeHoverDiv = null;
     });
 
-    // Themes filtering
+    // Theme Cards filtering
     $('.selected-tag').click(function (e) {
-        var text = $(e.target).text();
+        var selectedTag;
+        var selection = $(e.target).text();
+        var $themeCards = $('.gh-theme-card');
         e.preventDefault();
-        selectedTag = text;
+        selectedTag = selection;
 
+        $themeCards.each(function () {
+            if ($(this).hasClass('filtered-category')) {
+                $(this).removeClass('filtered-category');
+            }
+        });
+
+        if (selectedTag === "All") {
+            return;
+        }
+
+        $themeCards.each(function () {
+            if (!$(this).hasClass(selectedTag)) {
+                $(this).addClass('filtered-category');
+            }
+        });
     });
 
     $('.selected-category').click(function (e) {
-        var text = $(e.target).text();
+        var selectedCategory;
+        var selection = $(e.target).text();
+        var $themeCards = $('.gh-theme-card');
         e.preventDefault();
-        selectedCategory = text;
+        selectedCategory = selection.toLowerCase();
 
+        $themeCards.each(function () {
+            if ($(this).hasClass('filtered-price')) {
+                $(this).removeClass('filtered-price');
+
+            }
+        });
+
+        if (selectedCategory === "all") {
+            return;
+        }
+
+        $themeCards.each(function () {
+            if (!$(this).hasClass(selectedCategory)) {
+                $(this).addClass('filtered-price');
+            }
+        });
     });
 });

@@ -48,6 +48,11 @@
     margin-bottom: 50px;
 }
 
+.gh-theme-card.filtered-price,
+.gh-theme-card.filtered-category {
+    display: none;
+}
+
 .gh-theme-card-image-wraper {
     position: relative;
     width: 340px;
