@@ -3,7 +3,7 @@
 
 {% include head.html %}
 
-<body>
+<body class="gh-marketplace">
 
     {% include header.html %}
 
@@ -17,28 +17,13 @@
             </div>
         </header>
         <section class="gh-section">
-            <div class="inner">
-                <!-- TODO: this doesn't work unfortunately... -->
-            {% assign selected_tag = (window.selectedTag) %}
-                <p>selected Tag: {{ selected_tag }}</p>
+            <div class="inner gh-themes-wrapper">
                 {{ content }}
             </div>
         </section>
     </main>
 
     {% include footer.html %}
-
-    <script>
-    var selectedTag;
-
-        $(document).ready(function () {
-            $('.selected-tag').click(function (e) {
-                var text = $(e.target).text();
-                e.preventDefault();
-                selectedTag = text;
-            });
-        });
-    </script>
 
 </body>
 

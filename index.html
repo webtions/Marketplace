@@ -3,11 +3,28 @@ layout: default
 ---
 
 <div class="gh-themes-feed">
-    {% for post in site.posts | where:"category", "(sites.selected_category)" and where:"tag", "Photo" %}
-      <div class="gh-theme-card">
-        <a href="{{ post.download }}">{{ post.title }}</a>
-        {{ post.title }} - {{ post.category}}
-        {{ post.tag}}
-    </div>
+    {% for post in site.posts %}
+    <article class="gh-theme-card {{ post.category }} {{ post.tag }}">
+        <div class="gh-theme-card-image-wraper">
+            <img class="gh-theme-card-image" src="{{ post.img | absolute_url }}" alt="{{ post.title }}">
+            <div class="gh-theme-card-overlay">
+                <a href="{{ post.download }}" class="gh-btn gh-btn-large gh-btn-blue"><span>Download Now</span></a>
+                {% if post.preview %}
+                <a href="{{ post.preview }}" class="gh-theme-card-preview">Preview {{ post.title }}</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="gh-theme-meta">
+            <div class="gh-theme-description">
+                <h4 class="gh-theme-title">
+                    {{ post.title }}
+                    {% if post.category == "paid" %}
+                    <span> &mdash; ${{ post.price}} </span>
+                    {% endif %}
+                </h4>
+                <p class="gh-theme-category">{{ post.tag}}</p>
+            </div>
+        </div>
+    </article>
     {% endfor %}
 </div>

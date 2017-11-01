@@ -25,6 +25,11 @@ function initDropdowns(allDropdowns) {
 
 // DO THE THINGS
 $(document).ready(function () {
+    var selectedTag;
+    var selectedCategory;
+    var $themeHoverDiv = null;
+    var hiddenTags = "";
+    var hiddenCategories = "";
     // Dropdown Menu Triggers
     initDropdowns($('.gh-more-drop'));
 
@@ -48,47 +53,28 @@ $(document).ready(function () {
         $('.gh-mobilehead').toggleClass('gh-mobilehead-open');
     });
 
-    // // FAQ Sections
-    // // TODO: This aint very DRY
-    // $('.gh-faq-link').click(function (e) {
-    //     e.preventDefault();
-    //     $('.gh-faq-link').removeClass('gh-faq-link-active');
-    //     $(this).addClass('gh-faq-link-active');
-    //     $('.gh-faq-section').removeClass('gh-faq-section-active');
-    // });
-    // $('.gh-faq-link-top10').click(function () {
-    //     $('.gh-faq-popular').addClass('gh-faq-section-active');
-    // });
-    // $('.gh-faq-link-gettingstarted').click(function () {
-    //     $('.gh-faq-gettingstarted').addClass('gh-faq-section-active');
-    // });
-    // $('.gh-faq-link-securityprivacy').click(function () {
-    //     $('.gh-faq-securityprivacy').addClass('gh-faq-section-active');
-    // });
-    // $('.gh-faq-link-billing').click(function () {
-    //     $('.gh-faq-billing').addClass('gh-faq-section-active');
-    // });
-    //
-    // // FAQ Accordions
-    // $('.gh-faq-q a').click(function (e) {
-    //     e.preventDefault();
-    //     $(this).parents('.gh-faq-item').toggleClass('gh-faq-item-open');
-    // });
-    //
-    // // Features page API code sections
-    // $('.gh-codebox-link').click(function (e) {
-    //     e.preventDefault();
-    //     $('.gh-codebox-link').removeClass('gh-codebox-link-active');
-    //     $(this).addClass('gh-codebox-link-active');
-    //     $('.gh-codebox').removeClass('gh-codebox-active');
-    // });
-    // $('.gh-codebox-link-posts').click(function () {
-    //     $('.gh-codebox-posts').addClass('gh-codebox-active');
-    // });
-    // $('.gh-codebox-link-tags').click(function () {
-    //     $('.gh-codebox-tags').addClass('gh-codebox-active');
-    // });
-    // $('.gh-codebox-link-users').click(function () {
-    //     $('.gh-codebox-users').addClass('gh-codebox-active');
-    // });
+    // Hover state on theme Card
+    $('.gh-theme-card-image-wraper').mouseenter(function (e) {
+        $themeHoverDiv = $(e.target.nextElementSibling).addClass('active');
+    });
+
+    $('.gh-theme-card-image-wraper').mouseleave(function (e) {
+        $themeHoverDiv.removeClass('active');
+        $themeHoverDiv = null;
+    });
+
+    // Themes filtering
+    $('.selected-tag').click(function (e) {
+        var text = $(e.target).text();
+        e.preventDefault();
+        selectedTag = text;
+
+    });
+
+    $('.selected-category').click(function (e) {
+        var text = $(e.target).text();
+        e.preventDefault();
+        selectedCategory = text;
+
+    });
 });

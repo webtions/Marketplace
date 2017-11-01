@@ -1,51 +1,19 @@
-<footer class="site-footer">
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>
-            {% if site.author %}
-              {{ site.author | escape }}
-            {% else %}
-              {{ site.title | escape }}
-            {% endif %}
-            </li>
-            {% if site.email %}
-            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description | escape }}</p>
-      </div>
+<footer class="gh-foot gh-foot-min">
+    <div class="gh-foot-content inner">
+        <nav class="gh-foot-min-nav">
+            <a class="gh-foot-min-item gh-foot-min-logo" href="https://ghost.org">
+                {% include /icons/ghost-logo.svg %}
+            </a>
+          <a class="gh-foot-min-item" href="https://themes.ghost.org">Docs</a>
+          <a class="gh-foot-min-item" href="https://github.com/tryghost/marketplace">Submit</a>
+            <a class="gh-foot-min-item" href="https://twitter.com/tryghost">@TryGhost</a>
+        </nav>
+        <div class="gh-foot-min-back">
+            <a class="gh-foot-min-item" href="https://ghost.org">Back to Ghost</a>
+        </div>
     </div>
-
-  </div>
-
 </footer>
 
-{{!-- jQuery + Fitvids, which makes all video embeds responsive --}}
 <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -53,76 +21,3 @@
 </script>
 <script type="text/javascript" src="{{ "assets/js/ghost.js" | relative_url }}"></script>
 <script type="text/javascript" src="https://auth.ghost.org/signin-button.js"></script>
-
-<!-- {{!-- Global Footer --}}
-<footer class="gh-foot">
-    <div class="gh-foot-content inner">
-        <section class="gh-foot-mast">
-            {{> logo}}
-            {{!-- Source: public/logo.svg - inlined as partial to save an http request --}}
-            <span class="gh-foot-mast-text">{{__ "global.footer.mast" "A proud non-profit organisation building technology for the future of journalism"}}</span>
-            <div class="gh-drop gh-langswitch">
-            	<div class="gh-drop-trigger">
-                    <span>{{__ "global.footer.language" "Language"}}: {{__ "global.footer.selected_language" "English"}} {{icon "arrow-down-small"}}</span>
-                </div>
-            	<ul class="gh-dropdown gh-dropup">
-                    <li {{#ifLocale "en"}}class="active"{{/ifLocale}}><a href="?lang=en">English <span class="gh-badge gh-badge-outline">GB</span></a></li>
-                    <li {{#ifLocale "fr"}}class="active"{{/ifLocale}}><a href="?lang=fr">Français <span class="gh-badge gh-badge-outline">FR</span></a></li>
-            		<li {{#ifLocale "de"}}class="active"{{/ifLocale}}><a href="?lang=de">Deutsch <span class="gh-badge gh-badge-outline">DE</span></a></li>
-            		<li {{#ifLocale "es"}}class="active"{{/ifLocale}}><a href="?lang=es">Español <span class="gh-badge gh-badge-outline">ES</span></a></li>
-                    <li {{#ifLocale "pt_BR"}}class="active"{{/ifLocale}}><a href="?lang=pt_BR">Português <span class="gh-badge gh-badge-outline">BR</span></a></li>
-                    <li><a href="https://blog.ghost.org/translate-ghost-org/" target="_blank"><small class="gh-langswitch-help">Translate Ghost.org</small></a></li>
-            	</ul>
-            </div>
-            <div class="gh-foot-social">
-                <a href="https://twitter.com/tryghost" target="_blank">{{icon "twitter"}}</a>
-                <a href="https://www.facebook.com/ghost" target="_blank">{{icon "facebook"}}</a>
-                <a href="https://github.com/tryghost/ghost" target="_blank">{{icon "github"}}</a>
-                <a href="https://instagram.com/ghost" target="_blank">{{icon "instagram"}}</a>
-            </div>
-            <span class="gh-foot-copyright">Ghost Foundation &copy; 2013&ndash;2017</span>
-        </section>
-        <nav class="gh-foot-nav">
-            <section class="gh-foot-ghost gh-foot-col">
-                <h4>{{__ "global.footer.product" "Product"}}</h4>
-                <ul>
-                    <li>{{#link-to "/features/"}}{{__ "global.navigation.features_link" "Features"}}{{/link-to}}</li>
-                    <li>{{#link-to "/pricing/"}}{{__ "global.navigation.pricing_link" "Pricing"}}{{/link-to}}</li>
-                    <li>{{#link-to "/developers/"}}{{__ "global.navigation.developers_link" "Developers"}}{{/link-to}}</li>
-                    <li>{{#link-to "/downloads/"}}{{#__ "global.navigation.downloads_link"}}Desktop App{{/__}}{{/link-to}}</li>
-                    <li><a href="http://marketplace.ghost.org" target="_blank">Marketplace</a></li>
-                    <li><a href="https://status.ghost.org" target="_blank">{{__ "global.navigation.status_link" "Status"}}</a></li>
-                </ul>
-            </section>
-            <section class="gh-foot-company gh-foot-col">
-                <h4>{{__ "global.footer.company" "Company"}}</h4>
-                <ul>
-                    <li>{{#link-to "/about/"}}{{__ "global.navigation.about_link" "About"}}{{/link-to}}</li>
-                    <li>{{#link-to "/journalism/"}}Journalism <span class="gh-badge">New</span>{{/link-to}}</li>
-                    <li><a href="https://blog.ghost.org">{{__ "global.navigation.blog_link" "Blog"}}</a></li>
-                    <li><a href="https://ideas.ghost.org" target="_blank">{{__ "global.footer.feedback" "Feedback"}}</a></li>
-                    <li>{{#link-to "/terms/"}}{{__ "global.navigation.terms_of_service" "Terms of Service"}}{{/link-to}}</li>
-                    <li>{{#link-to "/design/"}}{{__ "global.footer.logos" "Logos"}}{{/link-to}}</li>
-                </ul>
-            </section>
-            <section class="gh-foot-support gh-foot-col">
-                <h4>{{__ "global.navigation.support_link" "Support"}}</h4>
-                <ul>
-                    <li>{{#link-to "/pricing/#faq"}}{{__ "global.footer.faq" "FAQ"}}{{/link-to}}</li>
-                    <li><a href="http://support.ghost.org">{{__ "global.footer.help_center" "Help center"}}</a></li>
-                    <li><a href="{{slackServer}}">{{__ "global.footer.slack_team" "Slack team"}}</a></li>
-                    <li>{{#link-to "/contact/"}}{{__ "global.navigation.contact_link" "Contact"}}{{/link-to}}</li>
-                    <li><a href="https://twitter.com/intent/tweet?text=%40TryGhost+Hi%21+Can+you+help+me+with+&amp;related=TryGhost" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">Tweet at us</a></li>
-                </ul>
-            </section>
-            <section class="gh-foot-compare gh-foot-col">
-                <h4>{{__ "global.footer.compare_to" "Compare to"}}</h4>
-                <ul>
-                    <li>{{#link-to "/vs/wordpress/"}}WordPress{{/link-to}}</li>
-                    <li>{{#link-to "/vs/tumblr/"}}Tumblr{{/link-to}}</li>
-                    <li>{{#link-to "/vs/medium/"}}Medium{{/link-to}}</li>
-                </ul>
-            </section>
-        </nav>
-    </div>
-</footer> -->

@@ -29,6 +29,13 @@
     border-radius: 4px;
 }
 
+.gh-btn-large span {
+    height: 46px;
+    padding: 0 35px;
+    font-size: 1.6rem;
+    line-height: 46px;
+}
+
 /* When disabled */
 .gh-btn.disabled,
 .gh-btn[disabled],

@@ -6,7 +6,3 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - package.json
-
-# Custom variables
-selected_tag: "all"
-selected_category: "all"

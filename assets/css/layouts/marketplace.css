@@ -1,0 +1,113 @@
+/* Marketplace
+/* ---------------------------------------------------------- */
+
+.gh-marketplace {
+    font-family: "Open Sans", "Whitney SSm A", "Whitney SSm B", sans-serif;
+}
+
+.inner.gh-themes-wrapper {
+    max-width: 1160px;
+}
+
+/* Header
+/* ---------------------------------------------------------- */
+
+.gh-marketplace .gh-header {
+    padding: 80px 0 40px;
+}
+
+.gh-marketplace .gh-header h1 {
+    font-size: 4.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.gh-marketplace .gh-header .gh-subhead {
+    font-size: 2.2rem;
+}
+
+/* Themes Feed
+/* ---------------------------------------------------------- */
+
+.gh-themes-feed {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Theme Card
+/* ---------------------------------------------------------- */
+
+.gh-theme-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 385px;
+    max-height: 500px;
+    margin-bottom: 50px;
+}
+
+.gh-theme-card-image-wraper {
+    position: relative;
+    width: 340px;
+    height: 424px;
+}
+
+.gh-theme-card-image {
+    display: block;
+    width: auto;
+    height: 424px;
+    max-width: 340px;
+    background: var(--lightgrey) no-repeat center center;
+    background-size: cover;
+    box-shadow: rgba(0,0,0,0.1) 0 10px 20px;
+    transition: all ease 0.2s;
+}
+
+.gh-theme-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: 1px #ccdfeb solid;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 2px;
+}
+
+.gh-theme-card-overlay.active {
+    display: flex;
+}
+
+.gh-theme-card-preview {
+    margin-top: 0.5em;
+    color: #384348;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    text-decoration: underline;
+}
+
+.gh-theme-title {
+    margin: 1.1em 0 0.2em;
+    color: #4a4a4a;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 1.29px;
+    text-transform: uppercase;
+}
+
+.gh-theme-title span {
+    font-weight: 400;
+    letter-spacing: 0.29px;
+}
+
+.gh-theme-category {
+    margin-bottom: 0;
+    color: var(--midgrey);
+    font-size: 1.5rem;
+}
