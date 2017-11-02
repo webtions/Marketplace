@@ -12,9 +12,9 @@ layout: default
                         <div class="gh-theme-card-image-wrapper">
                             <div class="gh-theme-card-image featured" style="background-image: url({{ featuredPost.img | absolute_url }})"></div>
                             <div class="gh-theme-card-overlay">
-                                <a class="gh-btn gh-btn-large gh-btn-blue" href="{{ featuredPost.download }}"><span>Download Now</span></a>
+                                <a class="gh-btn gh-btn-large gh-btn-blue" href="{{ featuredPost.download }}" target="_blank"><span>Download Now</span></a>
                                 {% if featuredPost.preview %}
-                                <a class="gh-theme-card-preview" href="{{ featuredPost.preview }}">Preview {{ featuredPost.title }}</a>
+                                <a class="gh-theme-card-preview" href="{{ featuredPost.preview }}" target="_blank">Preview {{ featuredPost.title }}</a>
                                 {% endif %}
                             </div>
                         </div>
