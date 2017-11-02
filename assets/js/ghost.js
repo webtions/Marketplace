@@ -131,4 +131,33 @@ $(document).ready(function () {
 
         filterThemes(e, selectedCategory, $categoryList, filterClass);
     });
+
+    $('#clearFilters').click(function () {
+        var $tagList = $('.selected-tag');
+        var $categoryList = $('.selected-category');
+        var $themeCards = $('.gh-theme-card');
+
+        // remove any filtered class that was set before
+        $themeCards.each(function () {
+            $(this).removeClass('filtered-price');
+            $(this).removeClass('filtered-category');
+        });
+
+        // remove any active class that was set before
+        $tagList.each(function (i) {
+            $(this).removeClass('active');
+            if ($(this.firstChild).text() === 'All') {
+                $(this).addClass('active');
+            }
+        });
+
+        $categoryList.each(function (i) {
+            $(this).removeClass('active');
+            if ($(this.firstChild).text() === 'All') {
+                $(this).addClass('active');
+            }
+        });
+
+        $('.gh-no-themes-found').removeClass('active');
+    })
 });

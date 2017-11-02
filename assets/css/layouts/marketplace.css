@@ -97,13 +97,27 @@
 }
 
 .gh-theme-card-image {
+    position: relative;
     display: block;
     width: auto;
     height: 424px;
     max-width: 340px;
+    overflow: hidden;
     background: var(--lightgrey) no-repeat center center;
     background-size: cover;
     box-shadow: rgba(0,0,0,0.1) 0 10px 20px;
+}
+
+.gh-theme-card-image.featured::before {
+    content: "Featured";
+    position: absolute;
+    top: 20px;
+    right: -42px;
+    width: 150px;
+    color: #fff;
+    text-align: center;
+    background-color: #a4d037;
+    transform: rotate(45deg);
 }
 
 .gh-theme-card-image-wrapper .gh-theme-card-overlay {
@@ -159,8 +173,14 @@
 .gh-no-themes-found h2 {
     display: none;
     margin: 0;
+    padding: 15vh 0 25vh;
 }
 
-.gh-no-themes-found.active h2 {
+.gh-no-themes-found #clearFilters {
+    display: none;
+}
+
+.gh-no-themes-found.active h2,
+.gh-no-themes-found.active #clearFilters {
     display: block;
 }
