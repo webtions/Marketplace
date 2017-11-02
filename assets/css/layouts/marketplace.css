@@ -125,7 +125,7 @@
 
 .gh-theme-card-image-wrapper:hover .gh-theme-card-overlay {
     opacity: 1;
-    transition: opacity ease 0.5s;
+    transition: opacity ease 0.3s;
 }
 
 .gh-theme-card-preview {
