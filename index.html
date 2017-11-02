@@ -12,9 +12,9 @@ layout: default
                         <div class="gh-theme-card-image-wrapper">
                             <div class="gh-theme-card-image featured" style="background-image: url({{ featuredPost.img | absolute_url }})"></div>
                             <div class="gh-theme-card-overlay">
-                                <a href="{{ featuredPost.download }}" class="gh-btn gh-btn-large gh-btn-blue"><span>Download Now</span></a>
+                                <a class="gh-btn gh-btn-large gh-btn-blue" href="{{ featuredPost.download }}"><span>Download Now</span></a>
                                 {% if featuredPost.preview %}
-                                <a href="{{ featuredPost.preview }}" class="gh-theme-card-preview">Preview {{ featuredPost.title }}</a>
+                                <a class="gh-theme-card-preview" href="{{ featuredPost.preview }}">Preview {{ featuredPost.title }}</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -41,9 +41,9 @@ layout: default
                         <div class="gh-theme-card-image-wrapper">
                             <div class="gh-theme-card-image" style="background-image: url({{ post.img | absolute_url }})"></div>
                             <div class="gh-theme-card-overlay">
-                                <a href="{{ post.download }}" class="gh-btn gh-btn-large gh-btn-blue"><span>Download Now</span></a>
+                                <a class="gh-btn gh-btn-large gh-btn-blue" href="{{ post.download }}" target="_blank"><span>Download Now</span></a>
                                 {% if post.preview %}
-                                <a href="{{ post.preview }}" class="gh-theme-card-preview">Preview {{ post.title }}</a>
+                                <a class="gh-theme-card-preview" href="{{ post.preview }}" target="_blank">Preview {{ post.title }}</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -66,6 +66,6 @@ layout: default
     {% endfor %}
     <div class="gh-no-themes-found">
         <h2>No themes found with these filters</h2>
-        <a href="#" id="clearFilters" class="gh-btn gh-btn-large gh-btn-blue"><span>Clear filters</span></a>
+        <a id="clearFilters" class="gh-btn gh-btn-large gh-btn-blue" href="#"><span>Clear filters</span></a>
     </div>
 </div>
