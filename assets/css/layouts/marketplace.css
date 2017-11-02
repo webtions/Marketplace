@@ -1,3 +1,30 @@
+.selected-category,
+.selected-tag {
+    position: relative;
+}
+
+.selected-category span,
+.selected-tag span {
+    display: none;
+}
+
+.selected-tag.active,
+.selected-category.active {
+    font-weight: 700;
+}
+
+.selected-tag.active span,
+.selected-category.active span {
+    display: block;
+}
+
+.gh-more-drop .selected-tag svg {
+    width: 10px;
+    height: auto;
+    margin: 0;
+    fill: var(--midgrey);
+}
+
 /* Marketplace
 /* ---------------------------------------------------------- */
 
@@ -26,6 +53,16 @@
     font-size: 2.2rem;
 }
 
+@media (max-width: 660px) {
+    .gh-marketplace .gh-header h1 {
+        font-size: 6vw;
+    }
+
+    .gh-marketplace .gh-header .gh-subhead {
+        font-size: 1.8rem;
+    }
+}
+
 /* Themes Feed
 /* ---------------------------------------------------------- */
 
@@ -43,9 +80,9 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    width: 385px;
+    width: 340px;
     max-height: 500px;
-    margin-bottom: 50px;
+    margin: 0 20px 50px;
 }
 
 .gh-theme-card.filtered-price,
@@ -53,7 +90,7 @@
     display: none;
 }
 
-.gh-theme-card-image-wraper {
+.gh-theme-card-image-wrapper {
     position: relative;
     width: 340px;
     height: 424px;
@@ -67,14 +104,13 @@
     background: var(--lightgrey) no-repeat center center;
     background-size: cover;
     box-shadow: rgba(0,0,0,0.1) 0 10px 20px;
-    transition: all ease 0.2s;
 }
 
-.gh-theme-card-overlay {
+.gh-theme-card-image-wrapper .gh-theme-card-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -83,10 +119,13 @@
     border: 1px #ccdfeb solid;
     background-color: rgba(255,255,255,0.9);
     border-radius: 2px;
+    opacity: 0;
+    transition: opacity ease 0.5s;
 }
 
-.gh-theme-card-overlay.active {
-    display: flex;
+.gh-theme-card-image-wrapper:hover .gh-theme-card-overlay {
+    opacity: 1;
+    transition: opacity ease 0.5s;
 }
 
 .gh-theme-card-preview {
@@ -115,4 +154,13 @@
     margin-bottom: 0;
     color: var(--midgrey);
     font-size: 1.5rem;
+}
+
+.gh-no-themes-found h2 {
+    display: none;
+    margin: 0;
+}
+
+.gh-no-themes-found.active h2 {
+    display: block;
 }

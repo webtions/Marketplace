@@ -15,9 +15,9 @@
                         </span>
                     </a>
                     <div class="gh-dropdown">
-                        <li><a href="#" class="selected-tag">All</a></li>
+                        <li><a href="#" class="selected-tag active">All<span>{% include /icons/checkmark.svg %}</span></a></li>
                         {% for tag in site.tags %}
-                        <li><a href="#" class="selected-tag">{{tag[0]}}</a></li>
+                        <li><a href="#" class="selected-tag">{{tag[0]}}<span>{% include /icons/checkmark.svg %}</span></a></li>
                         {% endfor %}
                     </div>
                 </div>
@@ -29,9 +29,9 @@
                         </span>
                     </a>
                     <div class="gh-dropdown">
-                        <li><a href="#" class="selected-category">All</a></li>
-                        <li><a href="#" class="selected-category">Free</a></li>
-                        <li><a href="#" class="selected-category">Paid</a></li>
+                        <li><a href="#" class="selected-category active">All<span>{% include /icons/checkmark.svg %}</span></a></li>
+                        <li><a href="#" class="selected-category">Free<span>{% include /icons/checkmark.svg %}</span></a></li>
+                        <li><a href="#" class="selected-category">Paid<span>{% include /icons/checkmark.svg %}</span></a></li>
                     </div>
                 </div>
 

@@ -4,8 +4,8 @@ layout: default
 
 <div class="gh-themes-feed">
     {% for post in site.posts %}
-    <article class="gh-theme-card {{ post.category }} {{ post.tag }}">
-        <div class="gh-theme-card-image-wraper">
+    <article class="gh-theme-card {{ post.category }} {{ post.tags | join: " " }}">
+        <div class="gh-theme-card-image-wrapper">
             <img class="gh-theme-card-image" src="{{ post.img | absolute_url }}" alt="{{ post.title }}">
             <div class="gh-theme-card-overlay">
                 <a href="{{ post.download }}" class="gh-btn gh-btn-large gh-btn-blue"><span>Download Now</span></a>
@@ -22,9 +22,12 @@ layout: default
                     <span> &mdash; ${{ post.price}} </span>
                     {% endif %}
                 </h4>
-                <p class="gh-theme-category">{{ post.tag}}</p>
+                <p class="gh-theme-category">{{ post.tags[0] }}</p>
             </div>
         </div>
     </article>
     {% endfor %}
+    <div class="gh-no-themes-found">
+        <h2>Sorry, no themes with these criterias available</h2>
+    </div>
 </div>

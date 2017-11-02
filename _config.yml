@@ -6,3 +6,10 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - package.json
+  - README.MD
+  - LICENSE
+
+defaults:
+  -
+    values:
+      layout: "default"

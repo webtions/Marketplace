@@ -23,6 +23,65 @@ function initDropdowns(allDropdowns) {
     });
 }
 
+function filterThemes(e, selected, $list, filterClass) {
+    var $themeCards = $('.gh-theme-card');
+    var unfilteredThemes = [];
+
+    // return if the clicked target is active already
+    if ($(e.target).hasClass('active')) {
+        return;
+    }
+
+    // remove any filtered class that was set before
+    $themeCards.each(function () {
+        if ($(this).hasClass(filterClass)) {
+            $(this).removeClass(filterClass);
+        }
+    });
+
+    // remove any active class that was set before
+    $list.each(function () {
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+        }
+    });
+
+    // Give the clicked target active class
+    $(e.target).addClass('active');
+
+    // Return when 'all' selected, as we don't want to filter then
+    if (selected.toLowerCase() === "all") {
+        unfilteredThemes = [];
+        $('.gh-no-themes-found').removeClass('active');
+        return;
+    }
+
+    // Give the theme cards that was selected the filtered class
+    // so they are not displayed
+    $themeCards.each(function () {
+        if (!$(this).hasClass(selected)) {
+            $(this).addClass(filterClass);
+        }
+    });
+
+    // Check if there's any theme card left, that is not filtered
+    // We want to show a text instead of an empty page
+    $themeCards.each(function () {
+        if (!$(this).hasClass('filtered-category') && !$(this).hasClass('filtered-price')) {
+            unfilteredThemes.push($(this));
+        }
+    });
+
+    if (!unfilteredThemes.length) {
+        $('.gh-no-themes-found').addClass('active');
+    } else {
+        $('.gh-no-themes-found').removeClass('active');
+    }
+
+    unfilteredThemes = [];
+
+}
+
 // DO THE THINGS
 $(document).ready(function () {
     var $themeHoverDiv = null;
@@ -50,63 +109,26 @@ $(document).ready(function () {
         $('.gh-mobilehead').toggleClass('gh-mobilehead-open');
     });
 
-    // Hover state on Theme Card
-    $('.gh-theme-card-image-wraper').mouseenter(function (e) {
-        $themeHoverDiv = $(e.target.nextElementSibling).addClass('active');
-    });
-
-    $('.gh-theme-card-image-wraper').mouseleave(function (e) {
-        $themeHoverDiv.removeClass('active');
-        $themeHoverDiv = null;
-    });
-
     // Theme Cards filtering
     $('.selected-tag').click(function (e) {
-        var selectedTag;
-        var selection = $(e.target).text();
-        var $themeCards = $('.gh-theme-card');
+        var selectedTag = $(e.target.firstChild).text();
+        var $tagList = $('.selected-tag');
+        var filterClass = 'filtered-category';
+
         e.preventDefault();
-        selectedTag = selection;
+        selectedTag = selectedTag.trim();
 
-        $themeCards.each(function () {
-            if ($(this).hasClass('filtered-category')) {
-                $(this).removeClass('filtered-category');
-            }
-        });
-
-        if (selectedTag === "All") {
-            return;
-        }
-
-        $themeCards.each(function () {
-            if (!$(this).hasClass(selectedTag)) {
-                $(this).addClass('filtered-category');
-            }
-        });
+        filterThemes(e, selectedTag, $tagList, filterClass);
     });
 
     $('.selected-category').click(function (e) {
-        var selectedCategory;
-        var selection = $(e.target).text();
-        var $themeCards = $('.gh-theme-card');
+        var selectedCategory = $(e.target.firstChild).text();
+        var $categoryList = $('.selected-category');
+        var filterClass = 'filtered-price';
+
         e.preventDefault();
-        selectedCategory = selection.toLowerCase();
+        selectedCategory = selectedCategory.toLowerCase().trim();
 
-        $themeCards.each(function () {
-            if ($(this).hasClass('filtered-price')) {
-                $(this).removeClass('filtered-price');
-
-            }
-        });
-
-        if (selectedCategory === "all") {
-            return;
-        }
-
-        $themeCards.each(function () {
-            if (!$(this).hasClass(selectedCategory)) {
-                $(this).addClass('filtered-price');
-            }
-        });
+        filterThemes(e, selectedCategory, $categoryList, filterClass);
     });
 });
