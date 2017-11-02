@@ -33,7 +33,10 @@ layout: default
                     {% endif %}
                 {% endfor %}
             {% endfor %}
-        {% else %}
+        {% endif %}
+    {% endfor %}
+    {% for tag in site.tags %}
+        {% if tag[0] != "Featured" %}
             {% for posts in tag %}
                 {% for post in posts %}
                     {% if post.title and post.tags[1] != "Featured" %}
