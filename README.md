@@ -6,6 +6,8 @@ We run the marketplace as a very simple showcase gallery with direct links to cr
 
 Anyone is welcome to submit a theme to the marketplace - however due to a very high number of submissions, we only accept the very best themes to showcase publicly on Ghost.org.
 
+![marketplace](https://user-images.githubusercontent.com/120485/32403880-c84d6258-c17f-11e7-981e-0e1f68a99b62.jpg)
+
 
 ## What sort of themes get accepted?
 
