@@ -79,7 +79,7 @@ To submit a theme, you'll need to open a pull request adding your theme to this 
 
 When you open the pull request you will see a template which needs to be filled out in full for us to be able to review your submission. If you skip any part of the PR template, the PR will be closed.
 
-For reference: [Here is an example of a good theme submission](#)
+For reference: [Have a look at past theme submissions](https://github.com/TryGhost/Marketplace/pulls?q=is%3Apr+is%3Aclosed)
 
 
 ## Providing theme support
