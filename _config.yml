@@ -1,3 +1,6 @@
+url: "https://marketplace.ghost.org"
+encoding: UTF-8
+
 exclude:
   - .git/
   - .github/
