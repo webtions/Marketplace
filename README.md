@@ -103,3 +103,7 @@ If we just don't think your theme is a good fit for the public showcase, we'll l
 All theme submissions and discussions around submissions must follow our [community standards](https://ghost.org/conduct/).
 
 After 5 years of running a large open source project, our bullshit tolerance levels are extraordinarily low. If you troll in any way, you'll be banned and reported to Github. The end.
+
+# Copyright & License
+
+Copyright (c) 2017-2018 Ghost Foundation - Released under the [MIT license](LICENSE). Ghost and the Ghost Logo are trademarks of Ghost Foundation Ltd. Please see our [trademark policy](https://ghost.org/trademark/) for info on acceptable usage.
