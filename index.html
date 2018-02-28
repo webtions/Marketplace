@@ -3,69 +3,57 @@ layout: default
 ---
 
 <div class="gh-themes-feed">
-    {% for tag in site.tags %}
-        {% if tag[0] == "Featured" %}
-            {% for featuredPosts in tag %}
-                {% for featuredPost in featuredPosts %}
-                    {% if featuredPost.title %}
-                    <article class="gh-theme-card {{ featuredPost.category }} {{ featuredPost.tags | join: " " }}">
-                        <div class="gh-theme-card-image-wrapper">
-                            <div class="gh-theme-card-image featured" style="background-image: url({{ featuredPost.img | absolute_url }})"></div>
-                            <div class="gh-theme-card-overlay">
-                                <a class="gh-btn gh-btn-large gh-btn-blue" href="{{ featuredPost.download }}" target="_blank" rel="noopener"><span>Download Now</span></a>
-                                {% if featuredPost.preview %}
-                                <a class="gh-theme-card-preview" href="{{ featuredPost.preview }}" target="_blank" rel="noopener">Preview {{ featuredPost.title }}</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="gh-theme-meta">
-                            <div class="gh-theme-description">
-                                <h4 class="gh-theme-title">
-                                    {{ featuredPost.title }}
-                                    {% if featuredPost.category == "paid" %}
-                                    <span> &mdash; ${{ featuredPost.price}} </span>
-                                    {% endif %}
-                                </h4>
-                                <p class="gh-theme-category">{{ featuredPost.tags[0] }}</p>
-                            </div>
-                        </div>
-                    </article>
+    {% for featuredPost in site.posts %}
+        {% if featuredPost.tags contains "Featured" %}
+        <article class="gh-theme-card {{ featuredPost.category }} {{ featuredPost.tags | join: " " }}">
+            <div class="gh-theme-card-image-wrapper">
+                <div class="gh-theme-card-image featured" style="background-image: url({{ featuredPost.img | absolute_url }})"></div>
+                <div class="gh-theme-card-overlay">
+                    <a class="gh-btn gh-btn-large gh-btn-blue" href="{{ featuredPost.download }}" target="_blank" rel="noopener"><span>Download Now</span></a>
+                    {% if featuredPost.preview %}
+                    <a class="gh-theme-card-preview" href="{{ featuredPost.preview }}" target="_blank" rel="noopener">Preview {{ featuredPost.title }}</a>
                     {% endif %}
-                {% endfor %}
-            {% endfor %}
+                </div>
+            </div>
+            <div class="gh-theme-meta">
+                <div class="gh-theme-description">
+                    <h4 class="gh-theme-title">
+                        {{ featuredPost.title }}
+                        {% if featuredPost.category == "paid" %}
+                        <span> &mdash; ${{ featuredPost.price}} </span>
+                        {% endif %}
+                    </h4>
+                    <p class="gh-theme-category">{{ featuredPost.tags[0] }}</p>
+                </div>
+            </div>
+        </article>
         {% endif %}
     {% endfor %}
-    {% for tag in site.tags %}
-        {% if tag[0] != "Featured" %}
-            {% for posts in tag %}
-                {% for post in posts %}
-                    {% if post.title and post.tags[1] != "Featured" %}
-                    <article class="gh-theme-card {{ post.category }} {{ post.tags | join: " " }}">
-                        <div class="gh-theme-card-image-wrapper">
-                            <div class="gh-theme-card-image" style="background-image: url({{ post.img | absolute_url }})"></div>
-                            <div class="gh-theme-card-overlay">
-                                <a class="gh-btn gh-btn-large gh-btn-blue" href="{{ post.download }}" target="_blank" rel="noopener"><span>Download Now</span></a>
-                                {% if post.preview %}
-                                <a class="gh-theme-card-preview" href="{{ post.preview }}" target="_blank" rel="noopener">Preview {{ post.title }}</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="gh-theme-meta">
-                            <div class="gh-theme-description">
-                                <h4 class="gh-theme-title">
-                                    {{ post.title }}
-                                    {% if post.category == "paid" %}
-                                    <span> &mdash; ${{ post.price}} </span>
-                                    {% endif %}
-                                </h4>
-                                <p class="gh-theme-category">{{ post.tags[0] }}</p>
-                            </div>
-                        </div>
-                    </article>
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
-        {% endif %}
+    {% for post in site.posts %}
+        {% unless post.tags contains "Featured" %}
+            <article class="gh-theme-card {{ post.category }} {{ post.tags | join: " " }}">
+                <div class="gh-theme-card-image-wrapper">
+                    <div class="gh-theme-card-image" style="background-image: url({{ post.img | absolute_url }})"></div>
+                    <div class="gh-theme-card-overlay">
+                        <a class="gh-btn gh-btn-large gh-btn-blue" href="{{ post.download }}" target="_blank" rel="noopener"><span>Download Now</span></a>
+                        {% if post.preview %}
+                        <a class="gh-theme-card-preview" href="{{ post.preview }}" target="_blank" rel="noopener">Preview {{ post.title }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="gh-theme-meta">
+                    <div class="gh-theme-description">
+                        <h4 class="gh-theme-title">
+                            {{ post.title }}
+                            {% if post.category == "paid" %}
+                            <span> &mdash; ${{ post.price}} </span>
+                            {% endif %}
+                        </h4>
+                        <p class="gh-theme-category">{{ post.tags[0] }}</p>
+                    </div>
+                </div>
+            </article>
+        {% endunless %}
     {% endfor %}
     <div class="gh-no-themes-found">
         <h2>No themes found with these filters</h2>
